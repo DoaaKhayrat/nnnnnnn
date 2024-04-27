@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Page1</title>
+    <link rel="stylesheet" href="StyleSheet.css" />
+    <script>
+        let emptyCell = "cell4";
+
+        function boxOver(event) {
+            event.preventDefault();
+        }
+
+        function boxDrag(event, boxNumber) {
+            event.dataTransfer.setData("text", boxNumber.toString());
+        }
+
+        function boxDrop(event, cellNumber) {
+            event.preventDefault();
+            let boxNumber = event.dataTransfer.getData("text");
+
+            let draggedBox = document.getElementById("box" + boxNumber);
+            let targetCell = document.getElementById("cell" + cellNumber);
+
+            if (targetCell.innerHTML.trim() === "") {
+                emptyCell = draggedBox.parentNode.id;
+                targetCell.appendChild(draggedBox);
+            }
+            if (draggedBox.parentElement.parentElement.id == "div1") {
+                draggedBox.style.background = "black"
+            } else if (draggedBox.parentElement.parentElement.id == "div2") {
+                draggedBox.style.background = "orange"
+            } else if (draggedBox.parentElement.parentElement.id == "div3") {
+                draggedBox.style.background = "green"
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="div1">
+            <div class="text1">To Do</div><br>
+            <div id="cell1" ondragover="boxOver(event)" ondrop="boxDrop(event, 1)">
+                <div class="box" id="box1" draggable="true" ondragstart="boxDrag(event, 1)">#1</div>
+            </div>
+            <div id="cell2" ondragover="boxOver(event)" ondrop="boxDrop(event, 2)">
+                <div class="box" id="box2" draggable="true" ondragstart="boxDrag(event, 2)">#2</div>
+            </div>
+            <div id="cell3" ondragover="boxOver(event)" ondrop="boxDrop(event, 3)">
+                <div class="box" id="box3" draggable="true" ondragstart="boxDrag(event, 3)">#3</div>
+            </div>
+            <div id="cell4" ondragover="boxOver(event)" ondrop="boxDrop(event, 4)"></div>
+            <div id="cell5" ondragover="boxOver(event)" ondrop="boxDrop(event, 5)"></div>
+        </div>
+        <div id="div2">
+            <div class="text2">In Progress</div><br>
+            <div id="cell6" ondragover="boxOver(event)" ondrop="boxDrop(event, 6)">
+                <div class="box" id="box4" draggable="true" ondragstart="boxDrag(event, 4)">#4</div>
+            </div>
+            <div id="cell7" ondragover="boxOver(event)" ondrop="boxDrop(event, 7)">
+                <div class="box" id="box5" draggable="true" ondragstart="boxDrag(event, 5)">#5</div>
+            </div>
+            <div id="cell8" ondragover="boxOver(event)" ondrop="boxDrop(event, 8)"></div>
+            <div id="cell9" ondragover="boxOver(event)" ondrop="boxDrop(event, 9)"></div>
+            <div id="cell10" ondragover="boxOver(event)" ondrop="boxDrop(event, 10)"></div>
+        </div>
+        <div id="div3">
+            <div class="text3">Done</div><br>
+            <div id="cell11" ondragover="boxOver(event)" ondrop="boxDrop(event, 11)"></div>
+            <div id="cell12" ondragover="boxOver(event)" ondrop="boxDrop(event, 12)"></div>
+            <div id="cell13" ondragover="boxOver(event)" ondrop="boxDrop(event, 13)"></div>
+            <div id="cell14" ondragover="boxOver(event)" ondrop="boxDrop(event, 14)"></div>
+            <div id="cell15" ondragover="boxOver(event)" ondrop="boxDrop(event, 15)"></div>
+        </div>
+    </div>
+</body>
+</html>

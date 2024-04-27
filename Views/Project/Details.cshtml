@@ -1,0 +1,169 @@
+﻿@model ProjectManager1.Models.Project
+
+@{
+    ViewData["Title"] = "Details";
+}
+<style>
+    div.class1 {
+        width: 100%;
+        overflow: auto;
+    }
+    div.class2 {
+        width: 30%;
+        height: 360px;
+        border: 1px solid black;
+        margin: 5px;
+        padding: 2px;
+        float:left;
+    }
+    header.class3 {
+        height: 40px;
+        border: 1px solid black;
+        background-color: #FFF4A3;
+        text-align: center;
+        padding-top: 4px;
+    }
+    a.class4 {
+        float: right;
+        width: 25px;
+        height: 23px;
+        text-align: center;
+        padding: 0px 0px 2px 0px;
+        border: 0px;
+        margin:1px;
+        
+    }
+
+    ul.class5 {
+        height: 310px;
+        overflow:scroll;
+    }
+    ul li {
+        background: #cce5ff;
+        margin: 5px;
+        padding: 2px;
+    }
+</style>
+
+<script>
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        var targetId = ev.target.id;
+        var taskId = document.getElementById(data).id;
+
+        // Update the status based on the target id
+        var statusId;
+        switch (targetId) {
+            case "ul1":
+                statusId = 1;
+                break;
+            case "ul2":
+                statusId = 2;
+                break;
+            case "ul3":
+                statusId = 3;
+                break;
+        }
+
+        // Update the status of the task using AJAX
+        updateTaskStatus(taskId, statusId);
+
+        // Append the task to the target list
+        ev.target.appendChild(document.getElementById(data));
+    }
+
+    function updateTaskStatus(taskId, statusId) {
+        // Make an AJAX call to update the status of the task
+
+        //var editUrl = '/Task/Edit/' + taskId;
+        var editUrl = '@Url.Action("Edit", "Task")' + '/' + taskId;
+        // Example:
+        $.ajax({
+            url: editUrl,
+            type: 'POST',
+            data: {StatusId: statusId },
+            
+        });
+    }
+</script>
+
+
+<h1>@Html.DisplayFor(model => model.Name) Details</h1>
+
+<hr />
+<div class="class1">
+   @*  @foreach (var status in Model.Status)
+    {
+        
+    }
+    <div class="class2">
+
+    </div> *@
+<div class= "class2">
+    <header class="class3"> Not Started</header>
+   <div >
+            <ul class="class5" id="ul1" ondrop="drop(event)" ondragover="allowDrop(event)">
+                @foreach (var task in Model.Tasks)
+                {
+                    @if (task.StatusId == 1)
+                    {
+                        <li draggable="true" ondragstart="drag(event)" id="@task.Id">
+                            @task.Name
+                            <a asp-controller="Task" asp-action="Details" asp-route-Id="@task.Id" class="class4 btn btn-outline-info btn-xs">+</a>
+                        </li>
+                    }
+                }
+
+        </ul>
+    </div>
+</div>
+<div class="class2">
+    <header class="class3"> In Progress</header>
+    <div>
+            <ul class="class5" id="ul2" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                @foreach (var task in Model.Tasks)
+                {
+                    @if (task.StatusId == 2)
+                    {
+                        <li draggable="true" ondragstart="drag(event)" id="@task.Id">
+                            @task.Name
+                            <a asp-controller="Task" asp-action="Details" asp-route-Id="@task.Id" class="class4 btn btn-outline-info btn-xs">+</a>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+</div>
+<div class="class2">
+    <header class="class3"> Done</header>
+    <div>
+            <ul class="class5" id="ul3" ondrop="drop(event)" ondragover="allowDrop(event)">
+                @foreach (var task in Model.Tasks)
+                {
+                    @if (task.StatusId == 3)
+                    {
+                        <li draggable="true" ondragstart="drag(event)" id="@task.Id">
+                            @task.Name
+                            <a asp-controller="Task" asp-action="Details" asp-route-Id="@task.Id" class="class4 btn btn-outline-info btn-xs">+</a>
+                        </li>
+                    }
+                }   
+        </ul>
+    </div>
+</div>
+</div>
+<br />
+<p>
+    <a asp-controller="Task"  asp-action="Create" class="btn btn-primary">ADD TASK</a>
+</p>
+<br />

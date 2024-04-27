@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .project-details {
+            display: flex;
+        }
+
+            .project-details > div {
+                border: 1px solid #ccc;
+                padding: 10px;
+                margin: 10px;
+                min-width: 200px;
+            }
+
+        .task {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            margin: 5px;
+            padding: 5px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        $(function () {
+            $(".task").draggable({
+                revert: true
+            });
+
+            $(".project-details > div").droppable({
+                drop: function (event, ui) {
+                    var task = ui.draggable;
+                    var status = $(this).attr("id");
+                    task.detach().css({ top: 0, left: 0 }).appendTo($(this));
+                    task.attr("data-status", status);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="project-details">
+        <div class="not-started" id="not-started">
+            <h3>Not Started</h3>
+            <!-- Tasks with status not started -->
+            <div class="task" data-status="not-started">Task 1</div>
+            <div class="task" data-status="not-started">Task 2</div>
+        </div>
+        <div class="in-progress" id="in-progress">
+            <h3>In Progress</h3>
+            <!-- Tasks with status in progress -->
+            <div class="task" data-status="in-progress">Task 3</div>
+            <div class="task" data-status="in-progress">Task 4</div>
+        </div>
+        <div class="done" id="done">
+            <h3>Done</h3>
+            <!-- Tasks with status done -->
+            <div class="task" data-status="done">Task 5</div>
+            <div class="task" data-status="done">Task 6</div>
+        </div>
+    </div>
+</body>
+</html>

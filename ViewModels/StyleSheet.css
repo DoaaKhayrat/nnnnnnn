@@ -1,0 +1,282 @@
+﻿
+body {
+}
+
+.container {
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+}
+
+#div1 {
+    background-color: gray;
+    float: left;
+    height: 750px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+}
+
+#div2 {
+    background-color: gray;
+    float: left;
+    margin-left: 20px;
+    height: 750px;
+    width: 300px;
+    text-align: center;
+}
+
+#div3 {
+    background-color: gray;
+    float: right;
+    margin-left: 20px;
+    height: 750px;
+    width: 300px;
+    text-align: center;
+}
+
+.text1 {
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    width: 250px;
+    height: 50px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.text2 {
+    background-color: orange;
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    width: 250px;
+    height: 50px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.text3 {
+    background-color: green;
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    width: 250px;
+    height: 50px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#box1 {
+    background-color: rgb(80, 80, 80);
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+    border: 5px solid white;
+    border-style: dashed;
+}
+
+#box2 {
+    background-color: rgb(80, 80, 80);
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+    border: 5px solid white;
+    border-style: dashed;
+}
+
+#box3 {
+    background-color: rgb(80, 80, 80);
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+    border: 5px solid white;
+    border-style: dashed;
+}
+
+#box4 {
+    background-color: rgb(80, 80, 80);
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+    border: 5px solid white;
+    border-style: dashed;
+}
+
+#box5 {
+    background-color: rgb(80, 80, 80);
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+    border: 5px solid white;
+    border-style: dashed;
+}
+
+#cell1 {
+    text-align: center;
+    font-size: 40px;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#cell2 {
+    text-align: center;
+    font-size: 40px;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#cell3 {
+    text-align: center;
+    font-size: 40px;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#cell4 {
+    text-align: center;
+    font-size: 40px;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#cell5 {
+    text-align: center;
+    font-size: 40px;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#cell6 {
+    text-align: center;
+    font-size: 40px;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#cell7 {
+    text-align: center;
+    font-size: 40px;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#cell8 {
+    text-align: center;
+    font-size: 40px;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#cell9 {
+    text-align: center;
+    font-size: 40px;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#cell10 {
+    text-align: center;
+    font-size: 40px;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#cell11 {
+    text-align: center;
+    font-size: 40px;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#cell12 {
+    text-align: center;
+    font-size: 40px;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#cell13 {
+    text-align: center;
+    font-size: 40px;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#cell14 {
+    text-align: center;
+    font-size: 40px;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#cell15 {
+    text-align: center;
+    font-size: 40px;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#div1 .box {
+    background: black;
+}
+
+#div2 .box {
+    background: orange;
+}
+
+#div3 .box {
+    background: green;
+}
+
